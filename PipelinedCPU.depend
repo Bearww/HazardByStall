@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1450979514 source:d:\programming\pipelinedcpu\main.cpp
+	<iostream>
+	<fstream>
+	<sstream>
+	<ctime>
+	<string>
+	<cstring>
+	<vector>
+	<map>
+	"Instruction.h"
+	"Settings.h"
+
+1450963890 d:\programming\pipelinedcpu\instruction.h
+
+1450979678 d:\programming\pipelinedcpu\settings.h
+	<iostream>
+	<string>
+	<cstring>
+
