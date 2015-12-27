@@ -19,7 +19,7 @@
 #define ID  0b00010
 #define EX  0b00100
 #define MEM 0b01000
-#define WB  ob10000
+#define WB  0b10000
 
 #define REGNUM 32
 #define MEMNUM 32

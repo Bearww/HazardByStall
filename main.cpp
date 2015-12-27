@@ -20,9 +20,10 @@ map<string, int> Rcode, Icode;
 
 int reg[REGNUM];
 int mem[MEMNUM];
+int exResult, memResult;
 vector<Instruction> instMem;
 queue<Instruction> instQueue;
-vector<vector<int> > istate;
+vector<int> pipelineState;
 map<string, int> label;
 Instruction *fetch, *decode, *execute, *memory, *writeback;
 
@@ -44,15 +45,16 @@ string filterComma(const string &);
 string getLabelName(const string &);
 int getRegister(const string &);
 int getAddress(const string &);
-int getImmediate(const string &);
+int getImmediate(int, const string &);
 int getOperationType(const string &);
 int getOpcode(const string &);
 int getFunctionCode(const string &);
-void setInstruction(int, Instruction &, const string &);
+void setInstruction(int, int, Instruction &, const string &);
 void printInsturctions();
 void instructionFormat(const Instruction &);
 
 void loadInstructions();
+void loadInstructions(int);
 void pipeline();
 void stageIF();
 void stageID();
@@ -61,12 +63,18 @@ void stageMEM();
 void stageWB();
 bool trackBranch();
 bool trackRegister(const int);
+int executeRtype(const Instruction &);
+int executeItype(const Instruction &);
+void printStage(int);
+void printPipelined();
 
 int main()
 {
     Init();
     ReadFile();
-    //printInsturctions();
+    printInsturctions();
+    pipeline();
+    printPipelined();
 
     return 0;
 }
@@ -101,6 +109,7 @@ void Init() {
         mem[i] = 1;
 
     BuildName();
+    fetch = decode = execute = memory = writeback = NULL;
 }
 
 void BuildName() {
@@ -134,7 +143,8 @@ void ReadFile()
         Log("Fetch instruction");
         bool isOp = false;
         Instruction inst;
-        stringstream ss(in_str);cout << in_str << endl;
+        stringstream ss(in_str);
+
         while(ss >> code) {
             // Filter the code begin or end with comma
             code = filterComma(code);
@@ -152,7 +162,7 @@ void ReadFile()
             }
             // If code is register, address or immediate value
             else
-                setInstruction(times++, inst, code);
+                setInstruction(i, times++, inst, code);
         }
         // If instruction is not label
         instMem.push_back(inst);
@@ -247,11 +257,11 @@ int getAddress(const string &addr)
     return ADD2TAR(0, tar);
 }
 
-int getImmediate(const string &imm)
+int getImmediate(int pc, const string &imm)
 {
     // Return if the branch operation
     if(label[imm] > 0)
-        return label[imm];
+        return pc - ADD2TAR(ADDR, label[imm]);
 
     int base = 10, sum = 0;
     // Immediate value is 2-base or 16-base
@@ -301,7 +311,7 @@ int getFunctionCode(const string &code)
     return (Rcode[code] ? Rcode[code] : UNKNOW);
 }
 
-void setInstruction(int times, Instruction &inst, const string &code)
+void setInstruction(int pc, int times, Instruction &inst, const string &code)
 {
     // Destination register
     if(times == 0) {
@@ -325,7 +335,7 @@ void setInstruction(int times, Instruction &inst, const string &code)
         if(inst.type == R)
             inst.inst.R.rt = getRegister(code);
         if(inst.type == I)
-            inst.inst.I.addr = getImmediate(code);
+            inst.inst.I.addr = getImmediate(pc, code);
     }
 }
 
@@ -355,18 +365,38 @@ void instructionFormat(const Instruction &inst)
 
 void loadInstructions()
 {
+    Log("Load instructions");
     for(size_t i = 0; i < instMem.size(); i++)
         instQueue.push(instMem[i]);
 }
 
+void loadInstructions(int count)
+{
+    // Count < 0, PC decrease
+    if(count < 0) {
+        int pc = instQueue.size() - count;
+        instQueue.empty();
+        for(int i = instMem.size() - pc - 1; i < (int)instMem.size(); i++)
+            instQueue.push(instMem[i]);
+    }
+    // Count > 0, PC increase
+    if(count > 0)
+        for(int i = 0; !instQueue.empty() && i < count; i++)
+            instQueue.pop();
+}
+
 void pipeline()
 {
+    loadInstructions();
+    Log("Start execute");
     for(int cycle = 1; !instQueue.empty(); cycle++) {
+        Log("Cycle");
         stageWB();
         stageMEM();
         stageEX();
         stageID();
         stageIF();
+        printStage(UNKNOW);
     }
 }
 
@@ -378,6 +408,7 @@ void stageIF()
         if(instQueue.empty())
             return;
         // Print IF stage
+        printStage(IF);
 
         fetch = &(instQueue.front());
         instQueue.pop();
@@ -386,39 +417,28 @@ void stageIF()
 
 void stageID()
 {
-    if(decode) {
-        // Print ID stage
-    }
-
     // ID get IF
     if(!decode) {
         // Get IF
         // Track EX is branch or not
-        if(!trackBranch()) {
+        if(fetch && !trackBranch()) {
             decode = fetch;
             fetch = NULL;
         }
     }
+    if(decode)
+        // Print ID stage
+        printStage(ID);
 }
 
 void stageEX()
 {
-    // Execute operation or calculate address
-    if(execute) {
-        // Print EX stage
-
-        // Exectue instruction
-
-        // If instruction is branch, change PC and instruction queue
-        execute = NULL;
-    }
-
     bool isFetchable = false;
     // EX get ID
     // If datapath
 
     // If no datapath and WB is done
-    if(!DATAPATH)
+    if(!DATAPATH && decode) {
         if(decode->type == R)
             // Track rs, rt
             if(!trackRegister(decode->inst.R.rs)
@@ -428,58 +448,90 @@ void stageEX()
             // Track rs
             if(!trackRegister(decode->inst.I.rs))
                 isFetchable = true;
+    }
 
     if(!execute && isFetchable) {
         execute = decode;
         decode = NULL;
     }
+
+    // Execute operation or calculate address
+    if(execute) {
+        // Print EX stage
+        printStage(EX);
+        // Exectue instruction
+        // Add, Sub
+        if(execute->type == R)
+            exResult = executeRtype(*execute);
+
+        // lw, sw, beq
+        if(execute->type == I)
+            exResult = executeItype(*execute);
+
+        // If instruction is branch, change PC and instruction queue
+        if(execute->type == I
+           && execute->inst.I.op == Icode["beq"])
+            loadInstructions(exResult);
+    }
 }
 
 void stageMEM()
 {
-    // Access memory operand
-    if(memory) {
-        // Print MEM stage
-
-        // Access memory
-        // lw, sw
-
-        memory = NULL;
-    }
-
     // MEM get EX
     if(!memory) {
         memory = execute;
         execute = NULL;
     }
 
-    // Store register to memory
+    // Access memory operand
+    if(memory) {
+        // Print MEM stage
+        printStage(MEM);
+        // Access memory
+        // lw, sw
+        if(memory->type == I) {
+            if(memory->inst.I.op == Icode["lw"])
+                memResult = mem[exResult];
+            // Store register to memory
+            if(memory->inst.I.op == Icode["sw"])
+                mem[exResult] = reg[memory->inst.I.rt];
+        }
+        if(memory->type == R)
+            memResult = exResult;
+    }
 }
 
 void stageWB()
 {
-    // Write result back to register
-    if(writeback) {
-        // Write back
-        // R, lw
-
-        // Print WB stage
-    }
-
     // WB get MEM
     if(!writeback) {
         writeback = memory;
         memory = NULL;
+    }
+
+    // Write result back to register
+    if(writeback) {
+        // Print WB stage
+        printStage(WB);
+        // Write back
+        // R, lw
+        if(writeback->type == R)
+            reg[writeback->inst.R.rd] = memResult;
+        if(writeback->type == I
+           && writeback->inst.I.op == Icode["lw"])
+            reg[writeback->inst.I.rt] = memResult;
+        // WB done
+        writeback = NULL;
     }
 }
 
 bool trackBranch()
 {
     // If either ID or EX are branch instruction
-    if(!decode && decode->type == I
+    if(decode && decode->type == I
        && decode->inst.I.op == Icode["beq"])
         return true;
-    if(!execute && execute->type == I
+    if(execute && execute->type == I
        && execute->inst.I.op == Icode["beq"])
         return true;
 
@@ -489,18 +541,79 @@ bool trackBranch()
 bool trackRegister(const int treg)
 {
     // Track EX destination register
-    if(!execute) {
+    if(execute) {
         if(execute->type == R && execute->inst.R.rd == treg)
             return true;
         if(execute->type == I && execute->inst.I.rt == treg)
             return true;
     }
     // If not frowarding, track MEM destination register
-    if(!FORWARDING && !memory) {
+    if(!FORWARDING && memory) {
         if(memory->type == R && memory->inst.R.rd == treg)
             return true;
         if(memory->type == I && memory->inst.I.rt == treg)
             return true;
     }
     return false;
+}
+
+int executeRtype(const Instruction &in)
+{
+    int a = reg[in.inst.R.rs], b = reg[in.inst.R.rt];
+    int sht = in.inst.R.shamt;
+    if(in.inst.R.func == Rcode["add"])
+        return (a + b) << sht;
+    if(in.inst.R.func == Rcode["sub"])
+        return (a - b) << sht;
+    return 0;
+}
+
+int executeItype(const Instruction &in)
+{
+    int rs = reg[in.inst.I.rs], rt = reg[in.inst.I.rt];
+    int addr = in.inst.I.addr;
+    if(in.inst.I.op == Icode["beq"]) {
+        if(rs == rt) {
+
+        }
+        else
+            return 0;
+    }
+    if(in.inst.I.op == Icode["lw"]
+       || in.inst.I.op == Icode["sw"])
+        return rs + addr;
+    return 0;
+}
+
+void printStage(int stage)
+{
+    pipelineState.push_back(stage);
+}
+
+void printPipelined()
+{
+    for(size_t i = 0, cycle = 1; i < pipelineState.size(); i++) {
+        if(pipelineState[i] == IF)
+            cout << "|I F|";
+        if(pipelineState[i] == ID)
+            cout << "|I D|";
+        if(pipelineState[i] == EX)
+            cout << "|E X|";
+        if(pipelineState[i] == MEM)
+            cout << "|MEM|";
+        if(pipelineState[i] == WB)
+            cout << "|W B|";
+        if(pipelineState[i] == UNKNOW)
+            cout << endl << ++cycle;
+    }
+
+    for(int i = 0; i < 32; i++)
+        cout << "$" << i << (i < 31 ? " " : "\n");
+    for(int i = 0; i < 32; i++)
+        cout << reg[i] << (i < 31 ? " " : "\n");
+
+    for(int i = 0; i < 32; i++)
+        cout << "W" << i << (i < 31 ? " " : "\n");
+    for(int i = 0; i < 32; i++)
+        cout << mem[i] << (i < 31 ? " " : "\n");
 }
