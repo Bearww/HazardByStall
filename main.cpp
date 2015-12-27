@@ -377,12 +377,19 @@ void stageIF()
         // Return when no any instruction in queue
         if(instQueue.empty())
             return;
+        // Print IF stage
+
         fetch = &(instQueue.front());
+        instQueue.pop();
     }
 }
 
 void stageID()
 {
+    if(decode) {
+        // Print ID stage
+    }
+
     // ID get IF
     if(!decode) {
         // Get IF
@@ -390,7 +397,6 @@ void stageID()
         if(!trackBranch()) {
             decode = fetch;
             fetch = NULL;
-            instQueue.pop();
         }
     }
 }
@@ -398,10 +404,17 @@ void stageID()
 void stageEX()
 {
     // Execute operation or calculate address
+    if(execute) {
+        // Print EX stage
+
+        // Exectue instruction
+
+        // If instruction is branch, change PC and instruction queue
+        execute = NULL;
+    }
+
     bool isFetchable = false;
     // EX get ID
-    // If forwarding and EX is done
-
     // If datapath
 
     // If no datapath and WB is done
@@ -416,17 +429,26 @@ void stageEX()
             if(!trackRegister(decode->inst.I.rs))
                 isFetchable = true;
 
-    // If instruction is branch, change PC and instruction queue
-    if(isFetchable) {
+    if(!execute && isFetchable) {
+        execute = decode;
+        decode = NULL;
     }
 }
 
 void stageMEM()
 {
     // Access memory operand
+    if(memory) {
+        // Print MEM stage
+
+        // Access memory
+        // lw, sw
+
+        memory = NULL;
+    }
 
     // MEM get EX
-    if(!execute) {
+    if(!memory) {
         memory = execute;
         execute = NULL;
     }
@@ -437,9 +459,15 @@ void stageMEM()
 void stageWB()
 {
     // Write result back to register
+    if(writeback) {
+        // Write back
+        // R, lw
+
+        // Print WB stage
+    }
 
     // WB get MEM
-    if(!memory) {
+    if(!writeback) {
         writeback = memory;
         memory = NULL;
     }
@@ -467,8 +495,8 @@ bool trackRegister(const int treg)
         if(execute->type == I && execute->inst.I.rt == treg)
             return true;
     }
-    // Track MEM destination register
-    if(!memory) {
+    // If not frowarding, track MEM destination register
+    if(!FORWARDING && !memory) {
         if(memory->type == R && memory->inst.R.rd == treg)
             return true;
         if(memory->type == I && memory->inst.I.rt == treg)
