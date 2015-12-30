@@ -13,7 +13,7 @@
 
 using namespace std;
 
-const string InputName  = "test.txt";
+const string InputName  = "input//in2.txt";
 const string OutputName = "result.txt";
 
 map<string, int> Rcode, Icode;
@@ -23,7 +23,7 @@ int mem[MEMNUM];
 int exResult, memResult;
 vector<Instruction> instMem;
 queue<Instruction> instQueue;
-vector<int> pipelineState;
+vector<pair<string, int> > pipelineState;
 map<string, int> label;
 Instruction *fetch, *decode, *execute, *memory, *writeback;
 
@@ -49,6 +49,7 @@ int getImmediate(int, const string &);
 int getOperationType(const string &);
 int getOpcode(const string &);
 int getFunctionCode(const string &);
+void printInstructionName(const Instruction *);
 void setInstruction(int, int, Instruction &, const string &);
 void printInsturctions();
 void instructionFormat(const Instruction &);
@@ -56,16 +57,17 @@ void instructionFormat(const Instruction &);
 void loadInstructions();
 void loadInstructions(int);
 void pipeline();
-void stageIF();
-void stageID();
-void stageEX();
-void stageMEM();
-void stageWB();
+bool stageIF();
+bool stageID();
+bool stageEX();
+bool stageMEM();
+bool stageWB();
 bool trackBranch();
 bool trackRegister(const int);
 int executeRtype(const Instruction &);
 int executeItype(const Instruction &);
 void printStage(int);
+void printStage(const string, int);
 void printPipelined();
 
 int main()
@@ -105,7 +107,7 @@ void Init() {
     Log("Initialize memory and register.");
     for(int i = 1; i < REGNUM; i++)
         reg[i] = 1;
-    for(int i = 1; i < MEMNUM; i++)
+    for(int i = 0; i < MEMNUM; i++)
         mem[i] = 1;
 
     BuildName();
@@ -140,6 +142,9 @@ void ReadFile()
 
     string in_str, code;
     for(int i = 0, times = 0; getline(fin, in_str); i++, times = 0) {
+        if(in_str == "")
+            continue;
+
         Log("Fetch instruction");
         bool isOp = false;
         Instruction inst;
@@ -263,24 +268,13 @@ int getImmediate(int pc, const string &imm)
     if(label[imm] > 0)
         return pc - ADD2TAR(ADDR, label[imm]);
 
-    int base = 10, sum = 0;
-    // Immediate value is 2-base or 16-base
-    if(imm.size() > 2 && imm[0] == '0') {
-        if(imm[1] == 'x' || imm[1] == 'X')
-            base = 16;
-        if(imm[1] == 'b' || imm[1] == 'B')
-            base = 2;
+    int sum = 0;
+    for(size_t i = (imm[0] == '-' ? 1 : 0); i < imm.size(); i++) {
+        sum *= 10;
+        sum += imm[i] - '0';
     }
+    sum *= (imm[0] == '-' ? -1 : 1);
 
-    for(size_t i =(base == 10 ? 0 : 2); i < imm.size(); i++) {
-        sum *= base;
-        if(imm[i] >= 'A' && imm[i] <= 'F')
-            sum += imm[i] - 'A' + 10;
-        else if(imm[i] >= 'a' && imm[i] <= 'f')
-            sum += imm[i] - 'a' + 10;
-        else
-            sum += imm[i] - '0';
-    }
     return sum;
 }
 
@@ -309,6 +303,22 @@ int getOpcode(const string &code)
 int getFunctionCode(const string &code)
 {
     return (Rcode[code] ? Rcode[code] : UNKNOW);
+}
+
+string getInsturctionName(const Instruction *inst)
+{
+    if(inst->type == R)
+        for(map<string, int>::iterator it = Rcode.begin();
+            it != Rcode.end(); it++)
+            if(it->second == inst->inst.R.func)
+                return it->first;
+
+    if(inst->type == I)
+        for(map<string, int>::iterator it = Icode.begin();
+            it != Icode.end(); it++)
+            if(it->second == inst->inst.I.op)
+                return it->first;
+    return "";
 }
 
 void setInstruction(int pc, int times, Instruction &inst, const string &code)
@@ -375,47 +385,62 @@ void loadInstructions(int count)
     // Count < 0, PC decrease
     if(count < 0) {
         int pc = instQueue.size() - count;
-        instQueue.empty();
+        // Clear instruction queue
+        while(!instQueue.empty())
+            instQueue.pop();
+        // Insert instructions
         for(int i = instMem.size() - pc - 1; i < (int)instMem.size(); i++)
             instQueue.push(instMem[i]);
     }
     // Count > 0, PC increase
     if(count > 0)
-        for(int i = 0; !instQueue.empty() && i < count; i++)
+        for(int i = 1; !instQueue.empty() && i < count; i++)
             instQueue.pop();
+
+    // Refetch from instruction queue
+    fetch = NULL;
 }
 
 void pipeline()
 {
+    bool s_if, s_id, s_ex, s_mem, s_wb;
     loadInstructions();
+    if(!instQueue.empty())
+        s_if = true;
+
     Log("Start execute");
-    for(int cycle = 1; !instQueue.empty(); cycle++) {
-        Log("Cycle");
-        stageWB();
-        stageMEM();
-        stageEX();
-        stageID();
-        stageIF();
-        printStage(UNKNOW);
+    for(int cycle = 1; s_if || s_id || s_ex || s_mem || s_wb; cycle++) {
+        //Log("Cycle");
+        printStage(cycle);
+        s_wb  = stageWB();
+        s_mem = stageMEM();
+        s_ex  = stageEX();
+        s_id  = stageID();
+        s_if  = stageIF();
     }
 }
 
-void stageIF()
+bool stageIF()
 {
     // Fetch a instruction from the instruction queue if IF is ready
     if(!fetch) {
-        // Return when no any instruction in queue
+        // Return false when no any instruction in queue
         if(instQueue.empty())
-            return;
-        // Print IF stage
-        printStage(IF);
+            return false;
 
+        // Fetch instruction
         fetch = &(instQueue.front());
         instQueue.pop();
     }
+
+    if(fetch)
+        // Print IF stage
+        printStage(getInsturctionName(fetch), IF);
+
+    return true;
 }
 
-void stageID()
+bool stageID()
 {
     // ID get IF
     if(!decode) {
@@ -426,30 +451,35 @@ void stageID()
             fetch = NULL;
         }
     }
-    if(decode)
+
+    if(decode) {
         // Print ID stage
-        printStage(ID);
-}
-
-void stageEX()
-{
-    bool isFetchable = false;
-    // EX get ID
-    // If datapath
-
-    // If no datapath and WB is done
-    if(!DATAPATH && decode) {
-        if(decode->type == R)
-            // Track rs, rt
-            if(!trackRegister(decode->inst.R.rs)
-               && !trackRegister(decode->inst.R.rt))
-                isFetchable = true;
-        if(decode->type == I)
-            // Track rs
-            if(!trackRegister(decode->inst.I.rs))
-                isFetchable = true;
+        printStage(getInsturctionName(decode), ID);
+        return true;
     }
 
+    return false;
+}
+
+bool stageEX()
+{
+    bool isFetchable = true;
+
+    // If no datapath
+    if(!DATAPATH && decode) {
+        if(decode->type == R)
+            // Track rs, rt register
+            if(trackRegister(decode->inst.R.rs)
+               || trackRegister(decode->inst.R.rt))
+                isFetchable = false;
+        if(decode->type == I)
+            // Track rs register
+            if(trackRegister(decode->inst.I.rs)
+               || trackRegister(decode->inst.I.rt))
+                isFetchable = false;
+    }
+
+    // EX get ID
     if(!execute && isFetchable) {
         execute = decode;
         decode = NULL;
@@ -458,7 +488,7 @@ void stageEX()
     // Execute operation or calculate address
     if(execute) {
         // Print EX stage
-        printStage(EX);
+        printStage(getInsturctionName(execute), EX);
         // Exectue instruction
         // Add, Sub
         if(execute->type == R)
@@ -472,10 +502,13 @@ void stageEX()
         if(execute->type == I
            && execute->inst.I.op == Icode["beq"])
             loadInstructions(exResult);
+
+        return true;
     }
+    return false;
 }
 
-void stageMEM()
+bool stageMEM()
 {
     // MEM get EX
     if(!memory) {
@@ -486,7 +519,7 @@ void stageMEM()
     // Access memory operand
     if(memory) {
         // Print MEM stage
-        printStage(MEM);
+        printStage(getInsturctionName(memory), MEM);
         // Access memory
         // lw, sw
         if(memory->type == I) {
@@ -498,13 +531,17 @@ void stageMEM()
         }
         if(memory->type == R)
             memResult = exResult;
+
+        return true;
     }
+    return false;
 }
 
-void stageWB()
+bool stageWB()
 {
+    writeback = NULL;
     // WB get MEM
-    if(!writeback) {
+    if(memory) {
         writeback = memory;
         memory = NULL;
     }
@@ -512,7 +549,7 @@ void stageWB()
     // Write result back to register
     if(writeback) {
         // Print WB stage
-        printStage(WB);
+        printStage(getInsturctionName(writeback), WB);
         // Write back
         // R, lw
         if(writeback->type == R)
@@ -520,9 +557,8 @@ void stageWB()
         if(writeback->type == I
            && writeback->inst.I.op == Icode["lw"])
             reg[writeback->inst.I.rt] = memResult;
-        // WB done
-        writeback = NULL;
     }
+    return false;
 }
 
 bool trackBranch()
@@ -540,18 +576,18 @@ bool trackBranch()
 
 bool trackRegister(const int treg)
 {
-    // Track EX destination register
-    if(execute) {
-        if(execute->type == R && execute->inst.R.rd == treg)
-            return true;
-        if(execute->type == I && execute->inst.I.rt == treg)
-            return true;
-    }
-    // If not frowarding, track MEM destination register
-    if(!FORWARDING && memory) {
+    // Track MEM destination register
+    if(memory) {
         if(memory->type == R && memory->inst.R.rd == treg)
             return true;
         if(memory->type == I && memory->inst.I.rt == treg)
+            return true;
+    }
+    // If not frowarding, track WB destination register
+    if(!FORWARDING && writeback) {
+        if(writeback->type == R && writeback->inst.R.rd == treg)
+            return true;
+        if(writeback->type == I && writeback->inst.I.rt == treg)
             return true;
     }
     return false;
@@ -573,9 +609,8 @@ int executeItype(const Instruction &in)
     int rs = reg[in.inst.I.rs], rt = reg[in.inst.I.rt];
     int addr = in.inst.I.addr;
     if(in.inst.I.op == Icode["beq"]) {
-        if(rs == rt) {
-
-        }
+        if(rs == rt)
+            return addr;
         else
             return 0;
     }
@@ -585,26 +620,34 @@ int executeItype(const Instruction &in)
     return 0;
 }
 
-void printStage(int stage)
+void printStage(int cycle)
 {
-    pipelineState.push_back(stage);
+    pipelineState.push_back(make_pair("", cycle));
+}
+
+void printStage(const string name, int stage)
+{
+    pipelineState.push_back(make_pair(name, stage));
 }
 
 void printPipelined()
 {
-    for(size_t i = 0, cycle = 1; i < pipelineState.size(); i++) {
-        if(pipelineState[i] == IF)
-            cout << "|I F|";
-        if(pipelineState[i] == ID)
-            cout << "|I D|";
-        if(pipelineState[i] == EX)
-            cout << "|E X|";
-        if(pipelineState[i] == MEM)
-            cout << "|MEM|";
-        if(pipelineState[i] == WB)
-            cout << "|W B|";
-        if(pipelineState[i] == UNKNOW)
-            cout << endl << ++cycle;
+    for(size_t i = 0; i < pipelineState.size(); i++) {
+        if(pipelineState[i].first != "") {
+            cout << pipelineState[i].first << ":";
+            if(pipelineState[i].second == IF)
+                cout << "|I F|" << endl;
+            if(pipelineState[i].second == ID)
+                cout << "|I D|" << endl;
+            if(pipelineState[i].second == EX)
+                cout << "|E X|" << endl;
+            if(pipelineState[i].second == MEM)
+                cout << "|MEM|" << endl;
+            if(pipelineState[i].second == WB)
+                cout << "|W B|" << endl;
+        }
+        else
+            cout << "Cycle " << pipelineState[i].second << endl;
     }
 
     for(int i = 0; i < 32; i++)

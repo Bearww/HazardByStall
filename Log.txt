@@ -1,258 +1,571 @@
-2015-11-25 13:1:5 Initialize memory and register.
-2015-11-25 13:1:5 Build operation code.
-2015-11-25 13:1:5 Try to open the input file.
-2015-11-25 13:1:5 Fetch instruction
-2015-11-25 13:1:5 Fetch instruction
-2015-11-25 13:1:5 Fetch instruction
-2015-11-25 13:1:5 Fetch instruction
-2015-11-25 13:1:5 Fetch instruction
-2015-11-25 13:1:5 Fetch instructions is done.
-2015-11-25 13:2:5 Initialize memory and register.
-2015-11-25 13:2:5 Build operation code.
-2015-11-25 13:2:5 Try to open the input file.
-2015-11-25 13:2:5 Fetch instruction
-2015-11-25 13:2:5 Fetch instruction
-2015-11-25 13:2:5 Fetch instruction
-2015-11-25 13:2:5 Fetch instruction
-2015-11-25 13:2:5 Fetch instruction
-2015-11-25 13:2:5 Fetch instructions is done.
-2015-11-25 13:3:38 Initialize memory and register.
-2015-11-25 13:3:38 Build operation code.
-2015-11-25 13:3:38 Try to open the input file.
-2015-11-25 13:3:38 Fetch instruction
-2015-11-25 13:3:38 Fetch instruction
-2015-11-25 13:3:38 Fetch instruction
-2015-11-25 13:3:38 Fetch instruction
-2015-11-25 13:3:38 Fetch instruction
-2015-11-25 13:3:38 Fetch instructions is done.
-2015-11-25 13:48:39 Initialize memory and register.
-2015-11-25 13:48:39 Build operation code.
-2015-11-25 13:48:39 Try to open the input file.
-2015-11-25 13:48:39 Fetch instruction
-2015-11-25 13:48:39 Fetch instruction
-2015-11-25 13:48:39 Fetch instruction
-2015-11-25 13:48:39 Fetch instruction
-2015-11-25 13:48:39 Fetch instruction
-2015-11-25 13:48:39 Fetch instructions is done.
-2015-11-25 15:51:21 Initialize memory and register.
-2015-11-25 15:51:21 Build operation code.
-2015-11-25 15:51:21 Try to open the input file.
-2015-11-25 15:51:21 Fetch instruction
-2015-11-25 15:51:21 Fetch instruction
-2015-11-25 15:51:21 Fetch instruction
-2015-11-25 15:51:21 Fetch instruction
-2015-11-25 15:51:21 Fetch instruction
-2015-11-25 15:51:21 Fetch instructions is done.
-2015-11-28 0:55:42 Initialize memory and register.
-2015-11-28 0:55:42 Build operation code.
-2015-11-28 0:55:42 Try to open the input file.
-2015-11-28 0:55:42 Fetch instruction
-2015-11-28 0:55:42 Fetch instruction
-2015-11-28 0:55:42 Fetch instruction
-2015-11-28 0:55:42 Fetch instruction
-2015-11-28 0:55:42 Fetch instruction
-2015-11-28 0:55:42 Fetch instructions is done.
-2015-11-28 1:5:20 Initialize memory and register.
-2015-11-28 1:5:20 Build operation code.
-2015-11-28 1:5:20 Try to open the input file.
-2015-11-28 1:5:20 Fetch instruction
-2015-11-28 1:5:20 Fetch instruction
-2015-11-28 1:5:20 Fetch instruction
-2015-11-28 1:5:20 Fetch instruction
-2015-11-28 1:5:20 Fetch instruction
-2015-11-28 1:5:20 Fetch instructions is done.
-2015-11-28 1:5:20 Load instructions
-2015-11-28 1:5:20 Start execute
-2015-11-28 1:5:20 Cycle
-2015-11-28 1:7:2 Initialize memory and register.
-2015-11-28 1:7:2 Build operation code.
-2015-11-28 1:7:2 Try to open the input file.
-2015-11-28 1:7:2 Fetch instruction
-2015-11-28 1:7:2 Fetch instruction
-2015-11-28 1:7:2 Fetch instruction
-2015-11-28 1:7:2 Fetch instruction
-2015-11-28 1:7:2 Fetch instruction
-2015-11-28 1:7:2 Fetch instructions is done.
-2015-11-28 1:7:2 Load instructions
-2015-11-28 1:7:2 Start execute
-2015-11-28 1:7:2 Cycle
-2015-11-28 1:8:47 Initialize memory and register.
-2015-11-28 1:8:47 Build operation code.
-2015-11-28 1:8:47 Try to open the input file.
-2015-11-28 1:8:47 Fetch instruction
-2015-11-28 1:8:47 Fetch instruction
-2015-11-28 1:8:47 Fetch instruction
-2015-11-28 1:8:47 Fetch instruction
-2015-11-28 1:8:47 Fetch instruction
-2015-11-28 1:8:47 Fetch instructions is done.
-2015-11-28 1:8:47 Load instructions
-2015-11-28 1:8:47 Start execute
-2015-11-28 1:8:47 Cycle
-2015-11-28 1:9:2 Initialize memory and register.
-2015-11-28 1:9:2 Build operation code.
-2015-11-28 1:9:2 Try to open the input file.
-2015-11-28 1:9:2 Fetch instruction
-2015-11-28 1:9:2 Fetch instruction
-2015-11-28 1:9:2 Fetch instruction
-2015-11-28 1:9:2 Fetch instruction
-2015-11-28 1:9:2 Fetch instruction
-2015-11-28 1:9:2 Fetch instructions is done.
-2015-11-28 1:9:2 Load instructions
-2015-11-28 1:9:2 Start execute
-2015-11-28 1:9:2 Cycle
-2015-11-28 1:9:34 Initialize memory and register.
-2015-11-28 1:9:34 Build operation code.
-2015-11-28 1:9:34 Try to open the input file.
-2015-11-28 1:9:34 Fetch instruction
-2015-11-28 1:9:34 Fetch instruction
-2015-11-28 1:9:34 Fetch instruction
-2015-11-28 1:9:34 Fetch instruction
-2015-11-28 1:9:34 Fetch instruction
-2015-11-28 1:9:34 Fetch instructions is done.
-2015-11-28 1:9:34 Load instructions
-2015-11-28 1:9:34 Start execute
-2015-11-28 1:9:34 Cycle
-2015-11-28 1:11:9 Initialize memory and register.
-2015-11-28 1:11:9 Build operation code.
-2015-11-28 1:11:9 Try to open the input file.
-2015-11-28 1:11:9 Fetch instruction
-2015-11-28 1:11:9 Fetch instruction
-2015-11-28 1:11:9 Fetch instruction
-2015-11-28 1:11:9 Fetch instruction
-2015-11-28 1:11:9 Fetch instruction
-2015-11-28 1:11:9 Fetch instructions is done.
-2015-11-28 1:11:9 Load instructions
-2015-11-28 1:11:9 Start execute
-2015-11-28 1:11:9 Cycle
-2015-11-28 1:12:38 Initialize memory and register.
-2015-11-28 1:12:38 Build operation code.
-2015-11-28 1:12:38 Try to open the input file.
-2015-11-28 1:12:38 Fetch instruction
-2015-11-28 1:12:38 Fetch instruction
-2015-11-28 1:12:38 Fetch instruction
-2015-11-28 1:12:38 Fetch instruction
-2015-11-28 1:12:38 Fetch instruction
-2015-11-28 1:12:38 Fetch instructions is done.
-2015-11-28 1:12:38 Load instructions
-2015-11-28 1:12:38 Start execute
-2015-11-28 1:12:38 Cycle
-2015-11-28 1:13:59 Initialize memory and register.
-2015-11-28 1:13:59 Build operation code.
-2015-11-28 1:13:59 Try to open the input file.
-2015-11-28 1:13:59 Fetch instruction
-2015-11-28 1:13:59 Fetch instruction
-2015-11-28 1:13:59 Fetch instruction
-2015-11-28 1:13:59 Fetch instruction
-2015-11-28 1:13:59 Fetch instruction
-2015-11-28 1:13:59 Fetch instructions is done.
-2015-11-28 1:13:59 Load instructions
-2015-11-28 1:13:59 Start execute
-2015-11-28 1:14:0 Cycle
-2015-11-28 1:14:28 Initialize memory and register.
-2015-11-28 1:14:28 Build operation code.
-2015-11-28 1:14:29 Try to open the input file.
-2015-11-28 1:14:29 Fetch instruction
-2015-11-28 1:14:29 Fetch instruction
-2015-11-28 1:14:29 Fetch instruction
-2015-11-28 1:14:29 Fetch instruction
-2015-11-28 1:14:29 Fetch instruction
-2015-11-28 1:14:29 Fetch instructions is done.
-2015-11-28 1:14:29 Load instructions
-2015-11-28 1:14:29 Start execute
-2015-11-28 1:14:29 Cycle
-2015-11-28 1:15:32 Initialize memory and register.
-2015-11-28 1:15:32 Build operation code.
-2015-11-28 1:15:32 Try to open the input file.
-2015-11-28 1:15:32 Fetch instruction
-2015-11-28 1:15:32 Fetch instruction
-2015-11-28 1:15:32 Fetch instruction
-2015-11-28 1:15:32 Fetch instruction
-2015-11-28 1:15:32 Fetch instruction
-2015-11-28 1:15:32 Fetch instructions is done.
-2015-11-28 1:15:32 Load instructions
-2015-11-28 1:15:32 Start execute
-2015-11-28 1:15:32 Cycle
-2015-11-28 1:16:8 Initialize memory and register.
-2015-11-28 1:16:8 Build operation code.
-2015-11-28 1:16:8 Try to open the input file.
-2015-11-28 1:16:8 Fetch instruction
-2015-11-28 1:16:8 Fetch instruction
-2015-11-28 1:16:8 Fetch instruction
-2015-11-28 1:16:8 Fetch instruction
-2015-11-28 1:16:8 Fetch instruction
-2015-11-28 1:16:8 Fetch instructions is done.
-2015-11-28 1:16:8 Load instructions
-2015-11-28 1:16:8 Start execute
-2015-11-28 1:16:8 Cycle
-2015-11-28 1:16:8 Cycle
-2015-11-28 1:16:8 Cycle
-2015-11-28 1:16:8 Cycle
-2015-11-28 1:16:8 Cycle
-2015-11-28 1:16:8 Cycle
-2015-11-28 1:18:15 Initialize memory and register.
-2015-11-28 1:18:15 Build operation code.
-2015-11-28 1:18:15 Try to open the input file.
-2015-11-28 1:18:15 Fetch instruction
-2015-11-28 1:18:15 Fetch instruction
-2015-11-28 1:18:15 Fetch instruction
-2015-11-28 1:18:15 Fetch instruction
-2015-11-28 1:18:15 Fetch instruction
-2015-11-28 1:18:15 Fetch instructions is done.
-2015-11-28 1:18:15 Load instructions
-2015-11-28 1:18:15 Start execute
-2015-11-28 1:18:15 Cycle
-2015-11-28 1:18:15 Cycle
-2015-11-28 1:18:15 Cycle
-2015-11-28 1:18:15 Cycle
-2015-11-28 1:18:15 Cycle
-2015-11-28 1:18:15 Cycle
-2015-11-28 1:19:2 Initialize memory and register.
-2015-11-28 1:19:2 Build operation code.
-2015-11-28 1:19:2 Try to open the input file.
-2015-11-28 1:19:2 Fetch instruction
-2015-11-28 1:19:2 Fetch instruction
-2015-11-28 1:19:2 Fetch instruction
-2015-11-28 1:19:2 Fetch instruction
-2015-11-28 1:19:2 Fetch instruction
-2015-11-28 1:19:2 Fetch instructions is done.
-2015-11-28 1:19:2 Load instructions
-2015-11-28 1:19:2 Start execute
-2015-11-28 1:19:2 Cycle
-2015-11-28 1:19:2 Cycle
-2015-11-28 1:19:2 Cycle
-2015-11-28 1:19:2 Cycle
-2015-11-28 1:19:2 Cycle
-2015-11-28 1:19:2 Cycle
-2015-11-28 1:23:8 Initialize memory and register.
-2015-11-28 1:23:8 Build operation code.
-2015-11-28 1:23:8 Try to open the input file.
-2015-11-28 1:23:8 Fetch instruction
-2015-11-28 1:23:8 Fetch instruction
-2015-11-28 1:23:8 Fetch instruction
-2015-11-28 1:23:8 Fetch instruction
-2015-11-28 1:23:8 Fetch instruction
-2015-11-28 1:23:8 Fetch instructions is done.
-2015-11-28 1:23:9 Load instructions
-2015-11-28 1:23:9 Start execute
-2015-11-28 1:23:9 Cycle
-2015-11-28 1:23:9 Cycle
-2015-11-28 1:23:9 Cycle
-2015-11-28 1:23:9 Cycle
-2015-11-28 1:23:9 Cycle
-2015-11-28 1:24:32 Initialize memory and register.
-2015-11-28 1:24:32 Build operation code.
-2015-11-28 1:24:32 Try to open the input file.
-2015-11-28 1:24:32 Fetch instruction
-2015-11-28 1:24:32 Fetch instruction
-2015-11-28 1:24:32 Fetch instruction
-2015-11-28 1:24:32 Fetch instruction
-2015-11-28 1:24:32 Fetch instruction
-2015-11-28 1:24:32 Fetch instructions is done.
-2015-11-28 1:24:32 Load instructions
-2015-11-28 1:24:32 Start execute
-2015-11-28 1:24:32 Cycle
-2015-11-28 1:24:32 Cycle
-2015-11-28 1:24:32 Cycle
-2015-11-28 1:24:32 Cycle
-2015-11-28 1:24:32 Cycle
-2015-11-28 1:24:32 Cycle
+2015-11-29 20:59:34 Initialize memory and register.
+2015-11-29 20:59:34 Build operation code.
+2015-11-29 20:59:34 Try to open the input file.
+2015-11-29 20:59:34 Fetch instruction
+2015-11-29 20:59:34 Fetch instruction
+2015-11-29 20:59:34 Fetch instruction
+2015-11-29 20:59:34 Fetch instruction
+2015-11-29 20:59:34 Fetch instruction
+2015-11-29 20:59:34 Fetch instructions is done.
+2015-11-29 20:59:34 Load instructions
+2015-11-29 20:59:34 Start execute
+2015-11-29 21:11:49 Initialize memory and register.
+2015-11-29 21:11:49 Build operation code.
+2015-11-29 21:11:49 Try to open the input file.
+2015-11-29 21:11:49 Fetch instruction
+2015-11-29 21:11:49 Fetch instruction
+2015-11-29 21:11:49 Fetch instruction
+2015-11-29 21:11:49 Fetch instruction
+2015-11-29 21:11:49 Fetch instruction
+2015-11-29 21:11:49 Fetch instructions is done.
+2015-11-29 21:11:49 Load instructions
+2015-11-29 21:11:49 Start execute
+2015-11-29 21:14:42 Initialize memory and register.
+2015-11-29 21:14:42 Build operation code.
+2015-11-29 21:14:42 Try to open the input file.
+2015-11-29 21:14:42 Fetch instruction
+2015-11-29 21:14:42 Fetch instruction
+2015-11-29 21:14:42 Fetch instruction
+2015-11-29 21:14:42 Fetch instruction
+2015-11-29 21:14:42 Fetch instruction
+2015-11-29 21:14:42 Fetch instructions is done.
+2015-11-29 21:14:42 Load instructions
+2015-11-29 21:14:42 Start execute
+2015-11-29 21:19:47 Initialize memory and register.
+2015-11-29 21:19:47 Build operation code.
+2015-11-29 21:19:47 Try to open the input file.
+2015-11-29 21:19:47 Fetch instruction
+2015-11-29 21:19:47 Fetch instruction
+2015-11-29 21:19:47 Fetch instruction
+2015-11-29 21:19:47 Fetch instruction
+2015-11-29 21:19:47 Fetch instruction
+2015-11-29 21:19:47 Fetch instructions is done.
+2015-11-29 21:19:47 Load instructions
+2015-11-29 21:19:47 Start execute
+2015-11-29 21:20:10 Initialize memory and register.
+2015-11-29 21:20:10 Build operation code.
+2015-11-29 21:20:10 Try to open the input file.
+2015-11-29 21:20:10 Fetch instruction
+2015-11-29 21:20:10 Fetch instruction
+2015-11-29 21:20:10 Fetch instruction
+2015-11-29 21:20:10 Fetch instruction
+2015-11-29 21:20:10 Fetch instruction
+2015-11-29 21:20:10 Fetch instructions is done.
+2015-11-29 21:20:10 Load instructions
+2015-11-29 21:20:10 Start execute
+2015-11-29 21:21:25 Initialize memory and register.
+2015-11-29 21:21:25 Build operation code.
+2015-11-29 21:21:25 Try to open the input file.
+2015-11-29 21:21:25 Fetch instruction
+2015-11-29 21:21:25 Fetch instruction
+2015-11-29 21:21:25 Fetch instruction
+2015-11-29 21:21:25 Fetch instruction
+2015-11-29 21:21:25 Fetch instruction
+2015-11-29 21:21:25 Fetch instructions is done.
+2015-11-29 21:21:25 Load instructions
+2015-11-29 21:21:25 Start execute
+2015-11-29 21:25:10 Initialize memory and register.
+2015-11-29 21:25:10 Build operation code.
+2015-11-29 21:25:10 Try to open the input file.
+2015-11-29 21:25:10 Fetch instruction
+2015-11-29 21:25:10 Fetch instruction
+2015-11-29 21:25:10 Fetch instruction
+2015-11-29 21:25:10 Fetch instruction
+2015-11-29 21:25:10 Fetch instruction
+2015-11-29 21:25:10 Fetch instructions is done.
+2015-11-29 21:25:10 Load instructions
+2015-11-29 21:25:10 Start execute
+2015-11-29 21:26:16 Initialize memory and register.
+2015-11-29 21:26:16 Build operation code.
+2015-11-29 21:26:16 Try to open the input file.
+2015-11-29 21:26:16 Fetch instruction
+2015-11-29 21:26:16 Fetch instruction
+2015-11-29 21:26:16 Fetch instruction
+2015-11-29 21:26:16 Fetch instruction
+2015-11-29 21:26:16 Fetch instruction
+2015-11-29 21:26:16 Fetch instructions is done.
+2015-11-29 21:26:16 Load instructions
+2015-11-29 21:26:16 Start execute
+2015-11-29 22:8:14 Initialize memory and register.
+2015-11-29 22:8:14 Build operation code.
+2015-11-29 22:8:14 Try to open the input file.
+2015-11-29 22:8:14 Fetch instruction
+2015-11-29 22:8:14 Fetch instruction
+2015-11-29 22:8:14 Fetch instruction
+2015-11-29 22:8:14 Fetch instruction
+2015-11-29 22:8:14 Fetch instruction
+2015-11-29 22:8:14 Fetch instructions is done.
+2015-11-29 22:8:14 Load instructions
+2015-11-29 22:8:14 Start execute
+2015-11-29 22:9:32 Initialize memory and register.
+2015-11-29 22:9:32 Build operation code.
+2015-11-29 22:9:32 Try to open the input file.
+2015-11-29 22:9:32 Fetch instruction
+2015-11-29 22:9:32 Fetch instruction
+2015-11-29 22:9:32 Fetch instruction
+2015-11-29 22:9:32 Fetch instruction
+2015-11-29 22:9:32 Fetch instruction
+2015-11-29 22:9:32 Fetch instructions is done.
+2015-11-29 22:9:32 Load instructions
+2015-11-29 22:9:32 Start execute
+2015-11-29 22:9:59 Initialize memory and register.
+2015-11-29 22:9:59 Build operation code.
+2015-11-29 22:9:59 Try to open the input file.
+2015-11-29 22:9:59 Fetch instruction
+2015-11-29 22:9:59 Fetch instruction
+2015-11-29 22:9:59 Fetch instruction
+2015-11-29 22:9:59 Fetch instruction
+2015-11-29 22:9:59 Fetch instruction
+2015-11-29 22:9:59 Fetch instructions is done.
+2015-11-29 22:9:59 Load instructions
+2015-11-29 22:9:59 Start execute
+2015-11-29 22:11:33 Initialize memory and register.
+2015-11-29 22:11:33 Build operation code.
+2015-11-29 22:11:33 Try to open the input file.
+2015-11-29 22:11:33 Fetch instruction
+2015-11-29 22:11:33 Fetch instruction
+2015-11-29 22:11:33 Fetch instruction
+2015-11-29 22:11:33 Fetch instruction
+2015-11-29 22:11:33 Fetch instruction
+2015-11-29 22:11:33 Fetch instructions is done.
+2015-11-29 22:11:33 Load instructions
+2015-11-29 22:11:34 Start execute
+2015-11-29 22:13:5 Initialize memory and register.
+2015-11-29 22:13:5 Build operation code.
+2015-11-29 22:13:5 Try to open the input file.
+2015-11-29 22:13:5 Fetch instruction
+2015-11-29 22:13:5 Fetch instruction
+2015-11-29 22:13:5 Fetch instruction
+2015-11-29 22:13:5 Fetch instruction
+2015-11-29 22:13:5 Fetch instruction
+2015-11-29 22:13:5 Fetch instructions is done.
+2015-11-29 22:13:5 Load instructions
+2015-11-29 22:13:5 Start execute
+2015-11-29 22:15:2 Initialize memory and register.
+2015-11-29 22:15:2 Build operation code.
+2015-11-29 22:15:2 Try to open the input file.
+2015-11-29 22:15:2 Fetch instruction
+2015-11-29 22:15:2 Fetch instruction
+2015-11-29 22:15:2 Fetch instruction
+2015-11-29 22:15:2 Fetch instruction
+2015-11-29 22:15:2 Fetch instruction
+2015-11-29 22:15:2 Fetch instructions is done.
+2015-11-29 22:15:2 Load instructions
+2015-11-29 22:15:2 Start execute
+2015-11-29 22:16:35 Initialize memory and register.
+2015-11-29 22:16:35 Build operation code.
+2015-11-29 22:16:35 Try to open the input file.
+2015-11-29 22:16:35 Fetch instruction
+2015-11-29 22:16:35 Fetch instruction
+2015-11-29 22:16:35 Fetch instruction
+2015-11-29 22:16:35 Fetch instruction
+2015-11-29 22:16:35 Fetch instruction
+2015-11-29 22:16:35 Fetch instructions is done.
+2015-11-29 22:16:35 Load instructions
+2015-11-29 22:16:35 Start execute
+2015-11-29 22:17:51 Initialize memory and register.
+2015-11-29 22:17:51 Build operation code.
+2015-11-29 22:17:51 Try to open the input file.
+2015-11-29 22:17:51 Fetch instruction
+2015-11-29 22:17:51 Fetch instruction
+2015-11-29 22:17:52 Fetch instruction
+2015-11-29 22:17:52 Fetch instruction
+2015-11-29 22:17:52 Fetch instruction
+2015-11-29 22:17:52 Fetch instructions is done.
+2015-11-29 22:17:52 Load instructions
+2015-11-29 22:17:52 Start execute
+2015-11-29 22:19:21 Initialize memory and register.
+2015-11-29 22:19:21 Build operation code.
+2015-11-29 22:19:21 Try to open the input file.
+2015-11-29 22:19:21 Fetch instruction
+2015-11-29 22:19:21 Fetch instruction
+2015-11-29 22:19:21 Fetch instruction
+2015-11-29 22:19:21 Fetch instruction
+2015-11-29 22:19:21 Fetch instruction
+2015-11-29 22:19:21 Fetch instructions is done.
+2015-11-29 22:19:21 Load instructions
+2015-11-29 22:19:21 Start execute
+2015-11-29 22:21:26 Initialize memory and register.
+2015-11-29 22:21:26 Build operation code.
+2015-11-29 22:21:26 Try to open the input file.
+2015-11-29 22:21:26 Fetch instruction
+2015-11-29 22:21:26 Fetch instruction
+2015-11-29 22:21:26 Fetch instruction
+2015-11-29 22:21:27 Fetch instruction
+2015-11-29 22:21:27 Fetch instruction
+2015-11-29 22:21:27 Fetch instructions is done.
+2015-11-29 22:21:27 Load instructions
+2015-11-29 22:21:27 Start execute
+2015-11-29 22:22:53 Initialize memory and register.
+2015-11-29 22:22:53 Build operation code.
+2015-11-29 22:22:53 Try to open the input file.
+2015-11-29 22:22:53 Fetch instruction
+2015-11-29 22:22:53 Fetch instruction
+2015-11-29 22:22:53 Fetch instruction
+2015-11-29 22:22:53 Fetch instruction
+2015-11-29 22:22:53 Fetch instruction
+2015-11-29 22:22:53 Fetch instructions is done.
+2015-11-29 22:22:53 Load instructions
+2015-11-29 22:22:53 Start execute
+2015-11-29 22:26:26 Initialize memory and register.
+2015-11-29 22:26:26 Build operation code.
+2015-11-29 22:26:26 Try to open the input file.
+2015-11-29 22:26:26 Fetch instruction
+2015-11-29 22:26:26 Fetch instruction
+2015-11-29 22:26:26 Fetch instruction
+2015-11-29 22:26:26 Fetch instruction
+2015-11-29 22:26:26 Fetch instruction
+2015-11-29 22:26:26 Fetch instructions is done.
+2015-11-29 22:26:26 Load instructions
+2015-11-29 22:26:26 Start execute
+2015-11-29 22:27:16 Initialize memory and register.
+2015-11-29 22:27:16 Build operation code.
+2015-11-29 22:27:16 Try to open the input file.
+2015-11-29 22:27:16 Fetch instruction
+2015-11-29 22:27:16 Fetch instruction
+2015-11-29 22:27:16 Fetch instruction
+2015-11-29 22:27:16 Fetch instruction
+2015-11-29 22:27:16 Fetch instruction
+2015-11-29 22:27:16 Fetch instructions is done.
+2015-11-29 22:27:16 Load instructions
+2015-11-29 22:27:16 Start execute
+2015-11-29 22:29:52 Initialize memory and register.
+2015-11-29 22:29:52 Build operation code.
+2015-11-29 22:29:52 Try to open the input file.
+2015-11-29 22:29:52 Fetch instruction
+2015-11-29 22:29:52 Fetch instruction
+2015-11-29 22:29:52 Fetch instruction
+2015-11-29 22:29:52 Fetch instruction
+2015-11-29 22:29:52 Fetch instruction
+2015-11-29 22:29:52 Fetch instructions is done.
+2015-11-29 22:29:52 Load instructions
+2015-11-29 22:29:52 Start execute
+2015-11-29 22:31:27 Initialize memory and register.
+2015-11-29 22:31:27 Build operation code.
+2015-11-29 22:31:27 Try to open the input file.
+2015-11-29 22:31:27 Fetch instruction
+2015-11-29 22:31:27 Fetch instruction
+2015-11-29 22:31:27 Fetch instruction
+2015-11-29 22:31:27 Fetch instruction
+2015-11-29 22:31:27 Fetch instruction
+2015-11-29 22:31:27 Fetch instructions is done.
+2015-11-29 22:31:27 Load instructions
+2015-11-29 22:31:27 Start execute
+2015-11-29 22:54:18 Initialize memory and register.
+2015-11-29 22:54:18 Build operation code.
+2015-11-29 22:54:18 Try to open the input file.
+2015-11-29 22:54:18 Fetch instruction
+2015-11-29 22:54:18 Fetch instruction
+2015-11-29 22:54:18 Fetch instruction
+2015-11-29 22:54:18 Fetch instruction
+2015-11-29 22:54:18 Fetch instruction
+2015-11-29 22:54:18 Fetch instructions is done.
+2015-11-29 22:54:18 Load instructions
+2015-11-29 22:54:18 Start execute
+2015-11-29 22:54:37 Initialize memory and register.
+2015-11-29 22:54:37 Build operation code.
+2015-11-29 22:54:37 Try to open the input file.
+2015-11-29 22:54:37 Fetch instruction
+2015-11-29 22:54:37 Fetch instruction
+2015-11-29 22:54:37 Fetch instruction
+2015-11-29 22:54:37 Fetch instruction
+2015-11-29 22:54:37 Fetch instruction
+2015-11-29 22:54:37 Fetch instructions is done.
+2015-11-29 22:54:37 Load instructions
+2015-11-29 22:54:37 Start execute
+2015-11-29 22:55:58 Initialize memory and register.
+2015-11-29 22:55:58 Build operation code.
+2015-11-29 22:55:58 Try to open the input file.
+2015-11-29 22:55:58 Fetch instruction
+2015-11-29 22:55:58 Fetch instruction
+2015-11-29 22:55:58 Fetch instruction
+2015-11-29 22:55:58 Fetch instruction
+2015-11-29 22:55:58 Fetch instruction
+2015-11-29 22:55:58 Fetch instructions is done.
+2015-11-29 22:55:58 Load instructions
+2015-11-29 22:55:58 Start execute
+2015-11-29 22:57:20 Initialize memory and register.
+2015-11-29 22:57:20 Build operation code.
+2015-11-29 22:57:20 Try to open the input file.
+2015-11-29 22:57:20 Fetch instruction
+2015-11-29 22:57:20 Fetch instruction
+2015-11-29 22:57:20 Fetch instruction
+2015-11-29 22:57:20 Fetch instruction
+2015-11-29 22:57:20 Fetch instruction
+2015-11-29 22:57:20 Fetch instructions is done.
+2015-11-29 22:57:20 Load instructions
+2015-11-29 22:57:20 Start execute
+2015-11-29 22:58:0 Initialize memory and register.
+2015-11-29 22:58:0 Build operation code.
+2015-11-29 22:58:0 Try to open the input file.
+2015-11-29 22:58:0 Fetch instruction
+2015-11-29 22:58:0 Fetch instruction
+2015-11-29 22:58:0 Fetch instruction
+2015-11-29 22:58:0 Fetch instruction
+2015-11-29 22:58:0 Fetch instruction
+2015-11-29 22:58:0 Fetch instructions is done.
+2015-11-29 22:58:0 Load instructions
+2015-11-29 22:58:0 Start execute
+2015-11-29 22:58:47 Initialize memory and register.
+2015-11-29 22:58:47 Build operation code.
+2015-11-29 22:58:47 Try to open the input file.
+2015-11-29 22:58:47 Fetch instruction
+2015-11-29 22:58:47 Fetch instruction
+2015-11-29 22:58:47 Fetch instruction
+2015-11-29 22:58:47 Fetch instruction
+2015-11-29 22:58:47 Fetch instruction
+2015-11-29 22:58:47 Fetch instructions is done.
+2015-11-29 22:58:47 Load instructions
+2015-11-29 22:58:47 Start execute
+2015-11-29 23:0:34 Initialize memory and register.
+2015-11-29 23:0:34 Build operation code.
+2015-11-29 23:0:34 Try to open the input file.
+2015-11-29 23:0:34 Fetch instruction
+2015-11-29 23:0:34 Fetch instruction
+2015-11-29 23:0:34 Fetch instruction
+2015-11-29 23:0:34 Fetch instruction
+2015-11-29 23:0:34 Fetch instructions is done.
+2015-11-29 23:0:34 Load instructions
+2015-11-29 23:0:34 Start execute
+2015-11-29 23:1:21 Initialize memory and register.
+2015-11-29 23:1:21 Build operation code.
+2015-11-29 23:1:21 Try to open the input file.
+2015-11-29 23:1:21 Fetch instruction
+2015-11-29 23:1:21 Fetch instruction
+2015-11-29 23:1:21 Fetch instruction
+2015-11-29 23:1:21 Fetch instruction
+2015-11-29 23:1:21 Fetch instructions is done.
+2015-11-29 23:1:21 Load instructions
+2015-11-29 23:1:21 Start execute
+2015-11-29 23:2:36 Initialize memory and register.
+2015-11-29 23:2:36 Build operation code.
+2015-11-29 23:2:36 Try to open the input file.
+2015-11-29 23:2:36 Fetch instruction
+2015-11-29 23:2:36 Fetch instruction
+2015-11-29 23:2:36 Fetch instruction
+2015-11-29 23:2:36 Fetch instruction
+2015-11-29 23:2:36 Fetch instructions is done.
+2015-11-29 23:2:36 Load instructions
+2015-11-29 23:2:36 Start execute
+2015-11-29 23:4:7 Initialize memory and register.
+2015-11-29 23:4:7 Build operation code.
+2015-11-29 23:4:7 Try to open the input file.
+2015-11-29 23:4:7 Fetch instruction
+2015-11-29 23:4:7 Fetch instruction
+2015-11-29 23:4:7 Fetch instruction
+2015-11-29 23:4:7 Fetch instruction
+2015-11-29 23:4:7 Fetch instructions is done.
+2015-11-29 23:4:7 Load instructions
+2015-11-29 23:4:7 Start execute
+2015-11-29 23:14:33 Initialize memory and register.
+2015-11-29 23:14:33 Build operation code.
+2015-11-29 23:14:33 Try to open the input file.
+2015-11-29 23:14:33 Fetch instruction
+2015-11-29 23:14:33 Fetch instruction
+2015-11-29 23:14:33 Fetch instruction
+2015-11-29 23:14:33 Fetch instruction
+2015-11-29 23:14:33 Fetch instructions is done.
+2015-11-29 23:14:33 Load instructions
+2015-11-29 23:14:33 Start execute
+2015-11-29 23:20:21 Initialize memory and register.
+2015-11-29 23:20:21 Build operation code.
+2015-11-29 23:20:21 Try to open the input file.
+2015-11-29 23:20:21 Fetch instruction
+2015-11-29 23:20:21 Fetch instruction
+2015-11-29 23:20:21 Fetch instruction
+2015-11-29 23:20:21 Fetch instruction
+2015-11-29 23:20:21 Fetch instructions is done.
+2015-11-29 23:20:21 Load instructions
+2015-11-29 23:20:21 Start execute
+2015-11-29 23:31:54 Initialize memory and register.
+2015-11-29 23:31:54 Build operation code.
+2015-11-29 23:31:54 Try to open the input file.
+2015-11-29 23:31:54 Fetch instruction
+2015-11-29 23:31:54 Fetch instruction
+2015-11-29 23:31:54 Fetch instruction
+2015-11-29 23:31:54 Fetch instruction
+2015-11-29 23:31:54 Fetch instructions is done.
+2015-11-29 23:31:54 Load instructions
+2015-11-29 23:31:54 Start execute
+2015-11-29 23:33:23 Initialize memory and register.
+2015-11-29 23:33:23 Build operation code.
+2015-11-29 23:33:23 Try to open the input file.
+2015-11-29 23:33:23 Fetch instruction
+2015-11-29 23:33:23 Fetch instruction
+2015-11-29 23:33:23 Fetch instruction
+2015-11-29 23:33:23 Fetch instruction
+2015-11-29 23:33:23 Fetch instructions is done.
+2015-11-29 23:33:23 Load instructions
+2015-11-29 23:33:23 Start execute
+2015-11-29 23:37:21 Initialize memory and register.
+2015-11-29 23:37:21 Build operation code.
+2015-11-29 23:37:21 Try to open the input file.
+2015-11-29 23:37:21 Fetch instruction
+2015-11-29 23:37:21 Fetch instruction
+2015-11-29 23:37:21 Fetch instruction
+2015-11-29 23:37:21 Fetch instruction
+2015-11-29 23:37:21 Fetch instructions is done.
+2015-11-29 23:37:21 Load instructions
+2015-11-29 23:37:21 Start execute
+2015-11-29 23:38:10 Initialize memory and register.
+2015-11-29 23:38:10 Build operation code.
+2015-11-29 23:38:10 Try to open the input file.
+2015-11-29 23:38:10 Fetch instruction
+2015-11-29 23:38:10 Fetch instruction
+2015-11-29 23:38:10 Fetch instruction
+2015-11-29 23:38:10 Fetch instruction
+2015-11-29 23:38:10 Fetch instructions is done.
+2015-11-29 23:38:10 Load instructions
+2015-11-29 23:38:10 Start execute
+2015-11-29 23:38:59 Initialize memory and register.
+2015-11-29 23:38:59 Build operation code.
+2015-11-29 23:38:59 Try to open the input file.
+2015-11-29 23:38:59 Fetch instruction
+2015-11-29 23:38:59 Fetch instruction
+2015-11-29 23:38:59 Fetch instruction
+2015-11-29 23:38:59 Fetch instruction
+2015-11-29 23:38:59 Fetch instructions is done.
+2015-11-29 23:38:59 Load instructions
+2015-11-29 23:38:59 Start execute
+2015-11-29 23:39:30 Initialize memory and register.
+2015-11-29 23:39:30 Build operation code.
+2015-11-29 23:39:30 Try to open the input file.
+2015-11-29 23:39:30 Fetch instruction
+2015-11-29 23:39:30 Fetch instruction
+2015-11-29 23:39:30 Fetch instruction
+2015-11-29 23:39:30 Fetch instruction
+2015-11-29 23:39:30 Fetch instructions is done.
+2015-11-29 23:39:30 Load instructions
+2015-11-29 23:39:30 Start execute
+2015-11-29 23:40:20 Initialize memory and register.
+2015-11-29 23:40:20 Build operation code.
+2015-11-29 23:40:20 Try to open the input file.
+2015-11-29 23:40:20 Fetch instruction
+2015-11-29 23:40:20 Fetch instruction
+2015-11-29 23:40:20 Fetch instruction
+2015-11-29 23:40:20 Fetch instruction
+2015-11-29 23:40:20 Fetch instructions is done.
+2015-11-29 23:40:21 Load instructions
+2015-11-29 23:40:21 Start execute
+2015-11-29 23:43:15 Initialize memory and register.
+2015-11-29 23:43:15 Build operation code.
+2015-11-29 23:43:15 Try to open the input file.
+2015-11-29 23:43:15 Fetch instruction
+2015-11-29 23:43:15 Fetch instruction
+2015-11-29 23:43:15 Fetch instruction
+2015-11-29 23:43:15 Fetch instruction
+2015-11-29 23:43:15 Fetch instructions is done.
+2015-11-29 23:43:15 Load instructions
+2015-11-29 23:43:15 Start execute
+2015-11-29 23:44:21 Initialize memory and register.
+2015-11-29 23:44:21 Build operation code.
+2015-11-29 23:44:21 Try to open the input file.
+2015-11-29 23:44:21 Fetch instruction
+2015-11-29 23:44:21 Fetch instruction
+2015-11-29 23:44:21 Fetch instruction
+2015-11-29 23:44:21 Fetch instruction
+2015-11-29 23:44:21 Fetch instructions is done.
+2015-11-29 23:44:21 Load instructions
+2015-11-29 23:44:21 Start execute
+2015-11-29 23:46:11 Initialize memory and register.
+2015-11-29 23:46:11 Build operation code.
+2015-11-29 23:46:11 Try to open the input file.
+2015-11-29 23:46:11 Fetch instruction
+2015-11-29 23:46:11 Fetch instruction
+2015-11-29 23:46:11 Fetch instruction
+2015-11-29 23:46:11 Fetch instruction
+2015-11-29 23:46:11 Fetch instructions is done.
+2015-11-29 23:46:11 Load instructions
+2015-11-29 23:46:11 Start execute
+2015-11-29 23:48:18 Initialize memory and register.
+2015-11-29 23:48:18 Build operation code.
+2015-11-29 23:48:18 Try to open the input file.
+2015-11-29 23:48:18 Fetch instruction
+2015-11-29 23:48:18 Fetch instruction
+2015-11-29 23:48:18 Fetch instruction
+2015-11-29 23:48:18 Fetch instruction
+2015-11-29 23:48:18 Fetch instructions is done.
+2015-11-29 23:48:18 Load instructions
+2015-11-29 23:48:18 Start execute
+2015-11-29 23:49:27 Initialize memory and register.
+2015-11-29 23:49:27 Build operation code.
+2015-11-29 23:49:27 Try to open the input file.
+2015-11-29 23:49:27 Fetch instruction
+2015-11-29 23:49:27 Fetch instruction
+2015-11-29 23:49:27 Fetch instruction
+2015-11-29 23:49:27 Fetch instruction
+2015-11-29 23:49:27 Fetch instructions is done.
+2015-11-29 23:49:27 Load instructions
+2015-11-29 23:49:27 Start execute
+2015-11-29 23:49:58 Initialize memory and register.
+2015-11-29 23:49:58 Build operation code.
+2015-11-29 23:49:58 Try to open the input file.
+2015-11-29 23:49:58 Fetch instruction
+2015-11-29 23:49:58 Fetch instruction
+2015-11-29 23:49:58 Fetch instruction
+2015-11-29 23:49:58 Fetch instruction
+2015-11-29 23:49:58 Fetch instructions is done.
+2015-11-29 23:49:58 Load instructions
+2015-11-29 23:49:59 Start execute
+2015-11-29 23:51:32 Initialize memory and register.
+2015-11-29 23:51:32 Build operation code.
+2015-11-29 23:51:32 Try to open the input file.
+2015-11-29 23:51:32 Fetch instruction
+2015-11-29 23:51:32 Fetch instruction
+2015-11-29 23:51:32 Fetch instruction
+2015-11-29 23:51:32 Fetch instruction
+2015-11-29 23:51:32 Fetch instructions is done.
+2015-11-29 23:51:32 Load instructions
+2015-11-29 23:51:32 Start execute
+2015-11-29 23:52:30 Initialize memory and register.
+2015-11-29 23:52:30 Build operation code.
+2015-11-29 23:52:30 Try to open the input file.
+2015-11-29 23:52:30 Fetch instruction
+2015-11-29 23:52:30 Fetch instruction
+2015-11-29 23:52:30 Fetch instruction
+2015-11-29 23:52:30 Fetch instruction
+2015-11-29 23:52:30 Fetch instructions is done.
+2015-11-29 23:52:30 Load instructions
+2015-11-29 23:52:30 Start execute
+2015-11-29 23:54:50 Initialize memory and register.
+2015-11-29 23:54:50 Build operation code.
+2015-11-29 23:54:50 Try to open the input file.
+2015-11-29 23:54:50 Fetch instruction
+2015-11-29 23:54:50 Fetch instruction
+2015-11-29 23:54:50 Fetch instruction
+2015-11-29 23:54:50 Fetch instruction
+2015-11-29 23:54:50 Fetch instructions is done.
+2015-11-29 23:54:50 Load instructions
+2015-11-29 23:54:50 Start execute
+2015-11-30 0:26:53 Initialize memory and register.
+2015-11-30 0:26:53 Build operation code.
+2015-11-30 0:26:53 Try to open the input file.
+2015-11-30 0:26:53 Fetch instruction
+2015-11-30 0:26:53 Fetch instruction
+2015-11-30 0:26:53 Fetch instructions is done.
+2015-11-30 0:26:53 Load instructions
+2015-11-30 0:26:53 Start execute
+2015-11-30 0:27:35 Initialize memory and register.
+2015-11-30 0:27:35 Build operation code.
+2015-11-30 0:27:35 Try to open the input file.
+2015-11-30 0:27:35 Fetch instruction
+2015-11-30 0:27:35 Fetch instruction
+2015-11-30 0:27:35 Fetch instructions is done.
+2015-11-30 0:27:35 Load instructions
+2015-11-30 0:27:35 Start execute
+2015-11-30 0:28:32 Initialize memory and register.
+2015-11-30 0:28:32 Build operation code.
+2015-11-30 0:28:32 Try to open the input file.
+2015-11-30 0:28:32 Fetch instruction
+2015-11-30 0:28:32 Fetch instruction
+2015-11-30 0:28:32 Fetch instructions is done.
+2015-11-30 0:28:32 Load instructions
+2015-11-30 0:28:32 Start execute
+2015-11-30 0:29:1 Initialize memory and register.
+2015-11-30 0:29:1 Build operation code.
+2015-11-30 0:29:1 Try to open the input file.
+2015-11-30 0:29:1 Fetch instruction
+2015-11-30 0:29:1 Fetch instruction
+2015-11-30 0:29:1 Fetch instructions is done.
+2015-11-30 0:29:1 Load instructions
+2015-11-30 0:29:1 Start execute
