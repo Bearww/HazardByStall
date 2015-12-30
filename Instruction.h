@@ -17,7 +17,7 @@ struct Rtype {
 };
 
 struct Itype {
-    unsigned int addr   :16;
+    int addr   :16;
     unsigned int rt     :5;
     unsigned int rs     :5;
     unsigned int op     :6;

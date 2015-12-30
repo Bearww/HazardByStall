@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <fstream>
 #include <sstream>
 #include <ctime>
@@ -13,7 +14,7 @@
 
 using namespace std;
 
-const string InputName  = "input//in2.txt";
+const string InputName  = "input//ex7.txt";
 const string OutputName = "result.txt";
 
 map<string, int> Rcode, Icode;
@@ -31,11 +32,11 @@ Instruction *fetch, *decode, *execute, *memory, *writeback;
 void Log(const string);
 
 // Initialize memory and register
-void Init();
+void init();
 // Build operation code
-void BuildName();
+void buildName();
 // Read file from InputName
-void ReadFile();
+void readFile();
 
 bool isLabel(const string &);
 bool isOperation(const string &);
@@ -69,14 +70,16 @@ int executeItype(const Instruction &);
 void printStage(int);
 void printStage(const string, int);
 void printPipelined();
+void outputToFile();
 
 int main()
 {
-    Init();
-    ReadFile();
+    init();
+    readFile();
     printInsturctions();
     pipeline();
     printPipelined();
+    outputToFile();
 
     return 0;
 }
@@ -103,18 +106,18 @@ void Log(const string msg)
     log.close();
 }
 
-void Init() {
+void init() {
     Log("Initialize memory and register.");
     for(int i = 1; i < REGNUM; i++)
         reg[i] = 1;
     for(int i = 0; i < MEMNUM; i++)
         mem[i] = 1;
 
-    BuildName();
+    buildName();
     fetch = decode = execute = memory = writeback = NULL;
 }
 
-void BuildName() {
+void buildName() {
     Log("Build operation code.");
     string Rname[] = {"add", "sub"};
     int func[] = {0x20, 0x22};
@@ -130,7 +133,7 @@ void BuildName() {
     //Jstr[0x3] = "jal";
 }
 
-void ReadFile()
+void readFile()
 {
     Log("Try to open the input file.");
     ifstream fin(InputName.c_str());
@@ -398,7 +401,8 @@ void loadInstructions(int count)
             instQueue.pop();
 
     // Refetch from instruction queue
-    fetch = NULL;
+    if(count)
+        fetch = NULL;
 }
 
 void pipeline()
@@ -581,14 +585,14 @@ bool trackRegister(const int treg)
         if(memory->type == R && memory->inst.R.rd == treg)
             return true;
         if(memory->type == I && memory->inst.I.rt == treg)
-            return true;
+            return (memory->inst.I.op != Icode["beq"]);
     }
     // If not frowarding, track WB destination register
     if(!FORWARDING && writeback) {
         if(writeback->type == R && writeback->inst.R.rd == treg)
             return true;
         if(writeback->type == I && writeback->inst.I.rt == treg)
-            return true;
+            return (writeback->inst.I.op != Icode["beq"]);
     }
     return false;
 }
@@ -596,11 +600,11 @@ bool trackRegister(const int treg)
 int executeRtype(const Instruction &in)
 {
     int a = reg[in.inst.R.rs], b = reg[in.inst.R.rt];
-    int sht = in.inst.R.shamt;
+    //int sht = in.inst.R.shamt;
     if(in.inst.R.func == Rcode["add"])
-        return (a + b) << sht;
+        return (a + b);
     if(in.inst.R.func == Rcode["sub"])
-        return (a - b) << sht;
+        return (a - b);
     return 0;
 }
 
@@ -634,29 +638,69 @@ void printPipelined()
 {
     for(size_t i = 0; i < pipelineState.size(); i++) {
         if(pipelineState[i].first != "") {
-            cout << pipelineState[i].first << ":";
+            cout << "\t" << pipelineState[i].first << ":";
             if(pipelineState[i].second == IF)
-                cout << "|I F|" << endl;
+                cout << "IF" << endl;
             if(pipelineState[i].second == ID)
-                cout << "|I D|" << endl;
+                cout << "ID" << endl;
             if(pipelineState[i].second == EX)
-                cout << "|E X|" << endl;
+                cout << "EX" << endl;
             if(pipelineState[i].second == MEM)
-                cout << "|MEM|" << endl;
+                cout << "MEM" << endl;
             if(pipelineState[i].second == WB)
-                cout << "|W B|" << endl;
+                cout << "WB" << endl;
         }
         else
             cout << "Cycle " << pipelineState[i].second << endl;
     }
 
     for(int i = 0; i < 32; i++)
-        cout << "$" << i << (i < 31 ? " " : "\n");
+        cout << "$" << setw(2) << i << (i < 31 ? " " : "\n");
     for(int i = 0; i < 32; i++)
-        cout << reg[i] << (i < 31 ? " " : "\n");
+        cout << setw(3) << reg[i] << (i < 31 ? " " : "\n");
 
     for(int i = 0; i < 32; i++)
-        cout << "W" << i << (i < 31 ? " " : "\n");
+        cout << "W" << setw(2) << i << (i < 31 ? " " : "\n");
     for(int i = 0; i < 32; i++)
-        cout << mem[i] << (i < 31 ? " " : "\n");
+        cout << setw(3) << mem[i] << (i < 31 ? " " : "\n");
+}
+
+void outputToFile()
+{
+    ofstream out(OutputName.c_str());
+
+    if(!out) {
+        Log("Open output file fail");
+        return;
+    }
+
+    for(size_t i = 0; i < pipelineState.size(); i++) {
+        if(pipelineState[i].first != "") {
+            out << "\t" << pipelineState[i].first << ":";
+            if(pipelineState[i].second == IF)
+                out << "IF" << endl;
+            if(pipelineState[i].second == ID)
+                out << "ID" << endl;
+            if(pipelineState[i].second == EX)
+                out << "EX" << endl;
+            if(pipelineState[i].second == MEM)
+                out << "MEM" << endl;
+            if(pipelineState[i].second == WB)
+                out << "WB" << endl;
+        }
+        else
+            out << "Cycle " << pipelineState[i].second << endl;
+    }
+
+    for(int i = 0; i < 32; i++)
+        out << "$" << setw(2) << i << (i < 31 ? " " : "\n");
+    for(int i = 0; i < 32; i++)
+        out << setw(3) << reg[i] << (i < 31 ? " " : "\n");
+
+    for(int i = 0; i < 32; i++)
+        out << "W" << setw(2) << i << (i < 31 ? " " : "\n");
+    for(int i = 0; i < 32; i++)
+        out << setw(3) << mem[i] << (i < 31 ? " " : "\n");
+
+    out.close();
 }

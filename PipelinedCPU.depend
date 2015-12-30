@@ -1,6 +1,7 @@
 # depslib dependency file v1.0
-1451401354 source:d:\programming\pipelinedcpu\main.cpp
+1451488475 source:d:\programming\pipelinedcpu\main.cpp
 	<iostream>
+	<iomanip>
 	<fstream>
 	<sstream>
 	<ctime>
@@ -12,7 +13,7 @@
 	"Instruction.h"
 	"Settings.h"
 
-1451029620 d:\programming\pipelinedcpu\instruction.h
+1451488541 d:\programming\pipelinedcpu\instruction.h
 	"Settings.h"
 
 1451235339 d:\programming\pipelinedcpu\settings.h
